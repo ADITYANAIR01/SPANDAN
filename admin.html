@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMC Admin - Report & Manage</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -20,14 +17,8 @@
             <nav>
                 <ul style="list-style: none;">
                     <li style="margin-bottom: 1rem;">
-                        <a href="#" onclick="switchView('report')" class="btn btn-primary"
+                        <a href="#" class="btn btn-primary"
                             style="width: 100%; justify-content: flex-start;">
-                            <span>New Report</span>
-                        </a>
-                    </li>
-                    <li style="margin-bottom: 1rem;">
-                        <a href="#" onclick="switchView('manage')" class="btn btn-secondary"
-                            style="width: 100%; justify-content: flex-start; border: none;">
                             <span>Manage Reports</span>
                         </a>
                     </li>
@@ -58,56 +49,8 @@
                 </div>
             </header>
 
-            <!-- Report Form Section -->
-            <div id="report-section" class="glass-card animate-fade-in">
-                <h2 style="margin-bottom: 1.5rem;">Report a New Place</h2>
-                <form id="reportForm">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-
-                        <!-- Left Column: Map -->
-                        <div>
-                            <label class="form-label">Select Location (Click on Map)</label>
-                            <div id="map"></div>
-                            <input type="hidden" id="latitude" name="latitude">
-                            <input type="hidden" id="longitude" name="longitude">
-                            <p id="location-status"
-                                style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--accent-secondary);">Click on
-                                the map to pin a location.</p>
-                        </div>
-
-                        <!-- Right Column: Details -->
-                        <div>
-                            <div class="form-group">
-                                <label class="form-label">Place Name</label>
-                                <input type="text" class="form-control" placeholder="e.g. Shivaji Park" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Description</label>
-                                <textarea class="form-control" rows="4" placeholder="Describe the issue or details..."
-                                    required></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Upload Photos (Min 2)</label>
-                                <div style="border: 2px dashed var(--glass-border); padding: 2rem; text-align: center; border-radius: 0.5rem; cursor: pointer;"
-                                    onclick="document.getElementById('fileInput').click()">
-                                    <p style="color: var(--text-secondary);">Click to upload or drag and drop</p>
-                                    <input type="file" id="fileInput" multiple accept="image/*" style="display: none;"
-                                        onchange="handleFileSelect(event)">
-                                </div>
-                                <div id="preview-container"
-                                    style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;"></div>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Report</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Manage Reports Section (Hidden by default) -->
-            <div id="manage-section" class="glass-card animate-fade-in" style="display: none;">
+            <!-- Manage Reports Section -->
+            <div id="manage-section" class="glass-card animate-fade-in">
                 <h2 style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem;">
                     Manage Reports</h2>
                 <div id="admin-reports-grid" style="display: grid; gap: 1rem;">
@@ -117,9 +60,6 @@
         </main>
     </div>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="js/admin.js"></script>
 </body>
 

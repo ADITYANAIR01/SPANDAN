@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMC Citizen Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -18,23 +21,70 @@
 
         <main>
             <div style="text-align: center; margin-bottom: 3rem;">
-                <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Community Reports</h1>
-                <p style="color: var(--text-secondary);">Stay updated with the latest reports and developments in your
-                    city.</p>
+                <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Report an Issue</h1>
+                <p style="color: var(--text-secondary);">Help us improve the city by reporting issues in your area.</p>
             </div>
 
-            <div class="glass-card animate-fade-in">
-                <h3 style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem;">
-                    Recent Submissions</h3>
+            <!-- Report Form Section -->
+            <div id="report-section" class="glass-card animate-fade-in">
+                <h2 style="margin-bottom: 1.5rem;">Report a New Place</h2>
+                <form id="reportForm">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
 
-                <!-- Dynamic content loaded via JS -->
-                <div id="reports-grid"
-                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
-                    <!-- Reports will appear here -->
-                </div>
+                        <!-- Left Column: Map -->
+                        <div>
+                            <label class="form-label">Select Location (Click on Map)</label>
+                            <div id="map"></div>
+                            <input type="hidden" id="latitude" name="latitude">
+                            <input type="hidden" id="longitude" name="longitude">
+                            <p id="location-status"
+                                style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--accent-secondary);">Click on
+                                the map to pin a location.</p>
+                        </div>
+
+                        <!-- Right Column: Details -->
+                        <div>
+                            <div class="form-group" style="position: relative;">
+                                <label class="form-label">Place Name (Search & Select)</label>
+                                <input type="text" id="placeNameInput" class="form-control" placeholder="Type to search location..." autocomplete="off" required>
+                                <div id="location-suggestions" style="position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-secondary); border: 1px solid var(--glass-border); border-radius: 0.5rem; z-index: 1000; max-height: 200px; overflow-y: auto; display: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);">
+                                    <!-- Suggestions will appear here -->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Pincode</label>
+                                <input type="text" id="pincodeInput" class="form-control" placeholder="e.g. 400028" pattern="[0-9]{6}" maxlength="6">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" rows="4" placeholder="Describe the issue or details..."
+                                    required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Upload Photos (Min 1)</label>
+                                <div style="border: 2px dashed var(--glass-border); padding: 2rem; text-align: center; border-radius: 0.5rem; cursor: pointer;"
+                                    onclick="document.getElementById('fileInput').click()">
+                                    <p style="color: var(--text-secondary);">Click to upload or drag and drop</p>
+                                    <input type="file" id="fileInput" multiple accept="image/*" style="display: none;"
+                                        onchange="handleFileSelect(event)">
+                                </div>
+                                <div id="preview-container"
+                                    style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;"></div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Report</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </main>
     </div>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="js/user.js"></script>
 </body>
 
