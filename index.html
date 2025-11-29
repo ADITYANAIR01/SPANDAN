@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMC Portal - Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .landing-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+        }
+
+        .role-cards {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .role-card {
+            width: 300px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .role-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="landing-container">
+        <div class="container" style="text-align: center;">
+            <h1 class="logo" style="font-size: 4rem; margin-bottom: 1rem;">BMC Portal</h1>
+            <p style="color: var(--text-secondary); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                Brihanmumbai Municipal Corporation Reporting System.
+                Seamlessly connecting citizens and administration for a better Mumbai.
+            </p>
+
+            <div class="role-cards">
+                <a href="admin.html" style="text-decoration: none;">
+                    <div class="glass-card role-card animate-fade-in" style="animation-delay: 0.1s;">
+                        <h2 style="color: var(--accent-primary); margin-bottom: 1rem;">Admin</h2>
+                        <p style="color: var(--text-secondary);">Access administrative tools, view reports, and manage
+                            city data.</p>
+                        <div class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;">Login as Admin</div>
+                    </div>
+                </a>
+
+                <a href="user.html" style="text-decoration: none;">
+                    <div class="glass-card role-card animate-fade-in" style="animation-delay: 0.2s;">
+                        <h2 style="color: var(--accent-secondary); margin-bottom: 1rem;">Citizen</h2>
+                        <p style="color: var(--text-secondary);">View public reports, updates, and community
+                            information.</p>
+                        <div class="btn btn-secondary" style="margin-top: 1.5rem; width: 100%;">Enter as Citizen</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

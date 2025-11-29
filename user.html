@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMC Citizen Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="navbar">
+            <div class="logo">BMC Citizen</div>
+            <a href="index.html" class="btn btn-secondary">Logout</a>
+        </header>
+
+        <main>
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Community Reports</h1>
+                <p style="color: var(--text-secondary);">Stay updated with the latest reports and developments in your
+                    city.</p>
+            </div>
+
+            <div class="glass-card animate-fade-in">
+                <h3 style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem;">
+                    Recent Submissions</h3>
+
+                <!-- Dynamic content loaded via JS -->
+                <div id="reports-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <!-- Reports will appear here -->
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/user.js"></script>
+</body>
+
+</html>
